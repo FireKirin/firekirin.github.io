@@ -75,8 +75,10 @@
     </script>
     <script>
         window.onload = function(){ 
-            var products = firebase.database().ref('products/');
-            console.log(products);
+            var products = firebase.database().ref('products');
+            products.on('value', function(snapshot) {
+                console.log(snapshot.val());
+            });
         }
     </script>
 </body>
