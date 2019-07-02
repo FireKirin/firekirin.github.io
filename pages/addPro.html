@@ -15,10 +15,8 @@
 
 <body>
         <div class="container">
-            <form action="" method="post">
                 <input type="text" name="product" id="product">
-                <button type="submit">Submit</button>
-           </form>
+                <button type="button" onclick="saveProduct()">Add Product</button>
         </div>
     
     <!-- Optional JavaScript -->
@@ -51,6 +49,21 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
+    </script>
+    <script type="text/javascript">
+        function saveProduct() {
+            var proObject = {
+                pro: document.getElementById('product').value;
+            };
+
+            firebase.database().ref('subscription-entries').push().set(proObject)
+                .then(function(snapshot) {
+                    success(); // some success method
+                }, function(error) {
+                    console.log('error' + error);
+                    error(); // some error method
+                });
+        }
     </script>
 </body>
 
