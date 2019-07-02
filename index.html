@@ -78,8 +78,6 @@
             var proHtml = '';
             products.on('child_added', function(snapshot) {
                     proHtml += snapshot.val().pro;
-                    
-                    console.log(proHtml);
             document.getElementById("content").innerHTML = proHtml;
             });
         }
