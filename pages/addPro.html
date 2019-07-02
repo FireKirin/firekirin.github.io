@@ -15,7 +15,6 @@
 
 <body>
         <div class="container">
-                <input type="text" name="id" id="id">
                 <input type="text" name="product" id="product">
                 <button type="button" onclick="saveProduct()">Add Product</button>
         </div>
@@ -59,9 +58,8 @@
             var proObject = {
                 pro: document.getElementById('product').value
             };
-            var id = document.getElementById('id').value
 
-            firebase.database().ref('products/'+ id).push().set(proObject)
+            firebase.database().ref('products/').push().set(proObject)
                 .then(function(snapshot) {
                     success(); // some success method
                 }, function(error) {
