@@ -76,11 +76,9 @@
     <script>
         function updateProduct(){
             var products = firebase.database().ref('products');
-            products.on('value', function(snapshot) {
-                snapshot.val().forEach(function(pro){
-                    proHtml = pro.pro;
+            products.on('child_added', function(snapshot) {
+                    proHtml = snapshot.val().pro;
                     console.log(proHtml);
-                });
             });
         }
         window.onload = updateProduct();
