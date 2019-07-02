@@ -35,9 +35,8 @@
             </div>
         </div>
     </header>
-    <section class="content">
-        <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=hishoponline-20&language=en_US&marketplace=amazon&region=US&placement=B01N43LYFS&asins=B01N43LYFS&linkId=4f84bcb024d1faf218231c9ca68637a4&show_border=true&link_opens_in_new_window=true"></iframe>
-    </section>
+    <section class="content" id="content">
+     </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -78,7 +77,8 @@
             var products = firebase.database().ref('products');
             products.on('child_added', function(snapshot) {
                     proHtml = snapshot.val().pro;
-                    console.log(proHtml);
+                    document.getElementById("content").appendChild(proHtml);
+                    console.log();
             });
         }
         window.onload = updateProduct();
