@@ -53,7 +53,7 @@
     <script type="text/javascript">
         function saveProduct() {
             var proObject = {
-                pro: document.getElementById('product').value;
+                pro: document.getElementById('product').value
             };
 
             firebase.database().ref('subscription-entries').push().set(proObject)
