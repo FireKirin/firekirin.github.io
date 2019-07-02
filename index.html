@@ -74,12 +74,16 @@
       firebase.initializeApp(firebaseConfig);
     </script>
     <script>
-        window.onload = function(){ 
+        function updateProduct(){
             var products = firebase.database().ref('products');
             products.on('value', function(snapshot) {
-                console.log(snapshot.val());
+                snapshot.val().forEach(function(pro){
+                    proHtml = pro.pro;
+                    console.log(proHtml);
+                });
             });
         }
+        window.onload = updateProduct();
     </script>
 </body>
 
